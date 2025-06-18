@@ -12,6 +12,7 @@ public class Server {
     public void start() throws IOException{
         while(true) {
             Socket socket = serverSocket.accept();
+            System.out.println("A client has connected!");
             ClientHandler clientHandler = new ClientHandler(socket);
             Thread thread = new Thread(clientHandler);
             thread.start();
@@ -21,7 +22,6 @@ public class Server {
     public static void main(String[] args) {
         try {
             Server server = new Server();
-
         }
         catch (IOException e) {
             e.printStackTrace();
